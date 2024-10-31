@@ -1,0 +1,22 @@
+{
+  "name": "quoty",
+  "version": "1.0.0",
+  "description": "A simple medium like popover for sharing selected text on social networks",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "envify": "^3.4.0",
+    "jquery": "^2.2.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "watchify": "^3.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "watch": "watchify -t [ babelify --presets [ react ] ]  ./js/src/app.jsx -o ./js/dist/quoty-public.js -v",
+    "build": "NODE_ENV=production browserify -t [ envify --NODE_ENV production  ] -t [ babelify --presets [ react ] ] ./js/src/app.jsx | uglifyjs -c -m >./js/dist/quoty-public.js",
+    "css" : "uglifycss ./css/quoty-public.css > ./css/quoty-public.min.css"
+  },
+  "author": "Nenad Ticaric"
+}
